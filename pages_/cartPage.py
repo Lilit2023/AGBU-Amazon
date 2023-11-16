@@ -12,6 +12,7 @@ class CartPage(BasePage):
     def get_cart_count_element(self):
         cartCountElement = self._find_element(self.__cartCountLocator)
         self._click(cartCountElement)
+
     def delete_first_product_from_cart(self):
         firstProductDeleteButtonElement = self._find_element(self.__firstProductDeleteButtonLocator)
         self._click(firstProductDeleteButtonElement)
