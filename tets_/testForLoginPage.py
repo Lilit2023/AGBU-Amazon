@@ -33,6 +33,8 @@ class LogIn(unittest.TestCase):
         loginPageObj.click_to_continue_button()
         loginPageObj.fill_password_field("lilit2023")
         loginPageObj.click_to_signin_button()
+        time.sleep(10)
+        loginPageObj.validate_incorrect_password_error_message()
 
     def tearDown(self):
         self.driver.close()

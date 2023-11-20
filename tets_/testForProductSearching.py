@@ -7,7 +7,7 @@ from selenium.webdriver.support.events import EventFiringWebDriver
 from common_.utilities_.customListener import MyListener
 
 
-class LogIn(unittest.TestCase):
+class ProductSearching(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
@@ -25,13 +25,12 @@ class LogIn(unittest.TestCase):
         loginPageObj.click_to_signin_button()
         time.sleep(15)
 
-        #self.assertEqual("Amazon.com. Spend less. Smile more.", self.driver.title)
+        self.assertEqual("Amazon.com. Spend less. Smile more.", self.driver.title)
 
     def test_product_searching(self):
         navigationBarObj = NavigationBar(self.driver)
-        search_button_element = navigationBarObj._find_element()
-        navigationBarObj._fill_field(search_button_element, "coat")
-        navigationBarObj.searching_button_element()
+        navigationBarObj.fill_search_field("coat")
+        navigationBarObj.click_to_search_button()
 
     def tearDown(self):
         self.driver.close()

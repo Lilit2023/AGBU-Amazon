@@ -14,6 +14,7 @@ class LoginPage(BasePage):
         self.__changeMailButtonLocator = (By.ID, "ap_change_login_claim")
         self.__detailsButtonLocator = (By.ID, "remember_me_learn_more_link")
         self.__forgotYourPasswordButtonLocator = (By.ID, "auth-fpp-link-bottom")
+        self.__incorrectPasswordLocator = (By.ID, "auth-error-message-box")
 
     def fill_username_field(self, username):
         userNameFieldElement = self._find_element(self.__usernameFieldLocator)
@@ -31,9 +32,9 @@ class LoginPage(BasePage):
         signinButtonElement = self._find_element(self.__signInButtonLocator)
         self._click(signinButtonElement)
 
-    def click_to_change_button(self):
-        changeButtonLocator = self._find_element(self.__changeMailButtonLocator)
-        self._click(changeButtonLocator)
+    def click_to_change_mail_button(self):
+        changeMailButtonLocator = self._find_element(self.__changeMailButtonLocator)
+        self._click(changeMailButtonLocator)
 
     def click_to_details_button(self):
         clickDetailsButton = self._find_element(self.__detailsButtonLocator)
@@ -48,5 +49,16 @@ class LoginPage(BasePage):
         if self._get_text(continueButtonElement) != "continue":
             print("Error: Wrong continue button text")
             exit(2)
+
+    def is_incorrect_password_error_message_appear(self):
+        try:
+            errorMessageElement = self._find_element(self.__incorrectPasswordLocator)
+            errorMessageText = self._get_text(errorMessageElement)
+            if errorMessageText !='There was a problem\nYour password is incorrect':
+                return False
+            else:
+                return True
+        except:
+            return False
 
 
