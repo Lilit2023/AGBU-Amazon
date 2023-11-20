@@ -31,11 +31,11 @@ class LogIn(unittest.TestCase):
         loginPageObj = LoginPage(self.simpleDriver)
         loginPageObj.fill_username_field("lilmankan@gmail.com")
         loginPageObj.click_to_continue_button()
-        loginPageObj.fill_password_field("lilit2023")
+        loginPageObj.fill_password_field("amazonlilit2023@")
         loginPageObj.click_to_signin_button()
         time.sleep(10)
-        loginPageObj.validate_incorrect_password_error_message()
-
+        self.assertTrue(loginPageObj.is_incorrect_password_error_message_appear(), "Error: Should show incorrect password aller, but did not match message or did not show")
+        time.sleep(10)
     def tearDown(self):
         self.driver.close()
 
