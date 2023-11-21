@@ -12,6 +12,17 @@ class NavigationBar(BasePage):
         self.__searchingButtonLocator = (By.ID, "nav-search-submit-button")
         self.__amazonButtonLocator = (By.ID, "nav-logo-sprites")
         self.__searchAllButtonLocator = (By.ID, "searchDropdownBox")
+        self.__accountAndListsLocator = (By.ID, "nav-link-accountList")
+        self.__signOutButtonLocator = (By.XPATH, "(//span[@class='nav-text'])[16]")
+
+    def mouse_move_to_account_and_lists_button(self):
+        accountAndListsButton = self._find_element(self.__accountAndListsLocator)
+        self._mouse_move(accountAndListsButton)
+
+    def click_to_sign_out_element(self):
+        signoutButtonElement = self.driver.find_element(self.__signOutButtonLocator)
+        self._click(signoutButtonElement)
+
 
     def get_cart_count_element(self):
         cartCountElement = self._find_element(self.__cartCountLocator)
@@ -36,4 +47,11 @@ class NavigationBar(BasePage):
     def click_to_search_all_dropdown_button(self):
         searchAllDropdownButton = self.driver.find_element(self.__searchAllButtonLocator)
         self._click(searchAllDropdownButton)
-c
+
+    #def select_account_and_lists_button(self):
+     #   accountAndListsElement = self.driver.find_element(self.__accountAndListsLocator)
+      #  self._click(accountAndListsElement)
+
+
+
+

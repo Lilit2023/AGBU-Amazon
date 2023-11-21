@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from common_.utilities_.customLogger import *
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class BasePage():
@@ -33,6 +34,13 @@ class BasePage():
     def _get_text(self, element):
         logger("INFO", f"Text is founded: {element.text}")
         return element.text
+
+    def _mouse_move(self, element):
+        action = ActionChains(self.driver)
+        action.move_to_element(element)
+        action.perform()
+
+
 
 
 
