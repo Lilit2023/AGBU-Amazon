@@ -20,8 +20,8 @@ class NavigationBar(BasePage):
         self._mouse_move(accountAndListsButton)
 
     def click_to_sign_out_element(self):
-        signoutButtonElement = self.driver.find_element(self.__signOutButtonLocator)
-        self._click(signoutButtonElement)
+        signOutButtonElement = self._find_element(self.__signOutButtonLocator)
+        self._click(signOutButtonElement)
 
 
     def get_cart_count_element(self):
@@ -41,16 +41,13 @@ class NavigationBar(BasePage):
         self._click(searchButtonElement)
 
     def click_to_amazon_button_locator(self):
-        amazonButtonLocator = self.driver.find_element(self.__amazonButtonLocator)
+        amazonButtonLocator = self._find_element(self.__amazonButtonLocator)
         self._click(amazonButtonLocator)
 
     def click_to_search_all_dropdown_button(self):
-        searchAllDropdownButton = self.driver.find_element(self.__searchAllButtonLocator)
+        searchAllDropdownButton = self._find_element(self.__searchAllButtonLocator)
         self._click(searchAllDropdownButton)
 
-    #def select_account_and_lists_button(self):
-     #   accountAndListsElement = self.driver.find_element(self.__accountAndListsLocator)
-      #  self._click(accountAndListsElement)
 
 
 
